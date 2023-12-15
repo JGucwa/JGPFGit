@@ -1,12 +1,53 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="JGPFGit.Views.StronaGlowna">
-    <ContentPage.Content>
+             x:Class="JGPFGit.Views.StronaGlowna"
+             NavigationPage.HasNavigationBar="False">
+    
+    <ContentPage Title="Dodaj Wydatek">
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Frame Margin="20">
+                <Label Text="W tym miejscu możesz zapisać swoje wydatki w naszej aplikacji" HorizontalTextAlignment="Center"/>
+            </Frame>
+            <Frame Margin="20,0,20,0" Padding="20,10,20,0">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1.5*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="2*"/>
+                    </Grid.RowDefinitions>
+
+                    <Label TextColor="Black" Grid.Column="0" Text="Nazwa Wydatku :" VerticalTextAlignment="Center"></Label>
+                    <Entry x:Name="NazwaTxt" TextColor="Gray" Grid.Column="1" VerticalOptions="Center"/>
+                    <Label TextColor="Black" Grid.Row="1" Grid.Column="0" Text="Kwota Wydatku :" VerticalTextAlignment="Center"></Label>
+                    <Entry Grid.Row="1" TextColor="Gray" x:Name="KwotaTxt" Grid.Column="1" VerticalOptions="Center"/>
+                    <Label TextColor="Black" Grid.Row="2" Grid.Column="0" Text="Data Wydatku :" VerticalTextAlignment="Center"></Label>
+                    <DatePicker Grid.Row="2" TextColor="Gray" x:Name="DataTxt" Grid.Column="1" VerticalOptions="Center" Margin="0,0,0,0"/>
+
+                    <Button Text="DODAJ" Clicked="DodajWydatek" BackgroundColor="Transparent" Grid.Row="3" Grid.Column="1" BorderColor="Black" BorderWidth="1" Margin="20,20,20,20" CornerRadius="10"></Button>
+                </Grid>
+            </Frame>
         </StackLayout>
-    </ContentPage.Content>
-</ContentPage>
+    </ContentPage>
+
+    <ContentPage Title="Twoje Wydatki">
+        <StackLayout>
+            <ListView x:Name="Lista" ItemTapped="Sczegoly">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame Margin="20">
+                                <Label Margin="10" FontAttributes="Bold" Text="{Binding Data}"/>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage>
+</TabbedPage>

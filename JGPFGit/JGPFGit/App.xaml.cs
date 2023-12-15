@@ -1,6 +1,7 @@
 ﻿using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using JGPFGit.Views;
 
 namespace JGPFGit
 {
@@ -10,7 +11,7 @@ namespace JGPFGit
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new NavigationPage(new StronaGlowna());
         }
 
         protected override void OnStart()

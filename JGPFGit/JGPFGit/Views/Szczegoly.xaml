@@ -1,12 +1,29 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="JGPFGit.Views.Szczegoly">
+             x:Class="JGPFGit.Views.Szczegoly"
+             Title="Szczegóły Wydatku">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Label x:Name="WydatkiDniaTxt" HorizontalTextAlignment="Center" Margin="20,20,20,0"/>
+            <ListView>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame Margin="20" Padding="10">
+                                <StackLayout>
+                                    <Label Text="Nazwa Wydatku :" FontAttributes="Bold"/>
+                                    <Label Text="{Binding Nazwa}"/>
+                                    <Label Text="Kwota Wydatku :" FontAttributes="Bold"/>
+                                    <Label TextColor="Red" Text="{Binding Path=Kwota, StringFormat='{D:F0} zł'}"/>
+                                    <Label Text="Data Wydatku :" FontAttributes="Bold"/>
+                                    <Label Text="{Binding Data}"/>
+                                </StackLayout>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
