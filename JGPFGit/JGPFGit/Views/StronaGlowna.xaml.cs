@@ -25,17 +25,17 @@ namespace JGPFGit.Views
         private void wyswietl()
         {
             List<Wydatek> tmp = new List<Wydatek>();
-            for(int i = 0; i < App.Database.WszystkieWydatki().Result.Count;)
+            for (int i = 0; i < App.Database.WszystkieWydatki().Result.Count; i++)
             {
                 bool istnieje = false;
-                for(int j = 0; j < tmp.Count; j++)
+                for (int j = 0; j < tmp.Count; j++)
                 {
-                    if (App.Database.WszystkieWydatki().Result[i].Data == tmp[i].Data)
+                    if (App.Database.WszystkieWydatki().Result[i].Data == tmp[j].Data)
                     {
                         istnieje = true;
                     }
                 }
-                if(!istnieje)
+                if (!istnieje)
                 {
                     tmp.Add(App.Database.WszystkieWydatki().Result[i]);
                 }
@@ -44,7 +44,7 @@ namespace JGPFGit.Views
         }
         public async void DodajWydatek(object sender, EventArgs e)
         {
-            if(Kwota.Text.Length > 0)
+            if(KwotaTxt.Text.Length > 0)
             {
                 if (string.IsNullOrWhiteSpace(NazwaTxt.Text))
                 {
@@ -59,9 +59,9 @@ namespace JGPFGit.Views
                 wyswietl();
             }
         }
-        public async void Szczegoly(object sender, EventArgs e)
+        public async void Sczegoly(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new Szczegoly((Lista.ItemSelected as Wydatek).Data));
+            await Navigation.PushAsync(new Szczegoly((Lista.SelectedItem as Wydatek).Data));
         }
     }
 }

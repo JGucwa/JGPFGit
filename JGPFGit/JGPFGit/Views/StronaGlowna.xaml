@@ -37,13 +37,15 @@
 
     <ContentPage Title="Twoje Wydatki">
         <StackLayout>
-            <ListView x:Name="Lista" ItemTapped="Sczegoly">
+            <ListView x:Name="Lista" ItemTapped="Sczegoly" HasUnevenRows="True">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <Frame Margin="20">
-                                <Label Margin="10" FontAttributes="Bold" Text="{Binding Data}"/>
-                            </Frame>
+                            <StackLayout>
+                                <Frame Margin="20">
+                                    <Label Margin="10" FontAttributes="Bold" Text="{Binding Data}"/>
+                                </Frame>
+                            </StackLayout>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>

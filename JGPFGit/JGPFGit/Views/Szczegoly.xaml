@@ -6,20 +6,22 @@
     <ContentPage.Content>
         <StackLayout>
             <Label x:Name="WydatkiDniaTxt" HorizontalTextAlignment="Center" Margin="20,20,20,0"/>
-            <ListView>
+            <ListView x:Name="Lista" HasUnevenRows="True">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <Frame Margin="20" Padding="10">
-                                <StackLayout>
-                                    <Label Text="Nazwa Wydatku :" FontAttributes="Bold"/>
-                                    <Label Text="{Binding Nazwa}"/>
-                                    <Label Text="Kwota Wydatku :" FontAttributes="Bold"/>
-                                    <Label TextColor="Red" Text="{Binding Path=Kwota, StringFormat='{D:F0} zł'}"/>
-                                    <Label Text="Data Wydatku :" FontAttributes="Bold"/>
-                                    <Label Text="{Binding Data}"/>
-                                </StackLayout>
-                            </Frame>
+                            <StackLayout>
+                                <Frame Margin="20" Padding="10">
+                                    <StackLayout>
+                                        <Label Text="Nazwa Wydatku :" FontAttributes="Bold"/>
+                                        <Label Text="{Binding Nazwa}"/>
+                                        <Label Text="Kwota Wydatku :" FontAttributes="Bold"/>
+                                        <Label TextColor="Red" Text="{Binding Path=Kwota, StringFormat='{D:F0} zł'}"/>
+                                        <Label Text="Data Wydatku :" FontAttributes="Bold"/>
+                                        <Label Text="{Binding Data}"/>
+                                    </StackLayout>
+                                </Frame>
+                            </StackLayout>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
